@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: syspass-app
+  labels:
+    group: syspass
+    app: syspass-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      group: syspass
+      app: syspass-app
+  template:
+    metadata:
+      labels:
+        group: syspass
+        app: syspass-app
+    spec:
+      volumes:
+      - name: syspass-app-storage
+        persistentVolumeClaim:
+          claimName: syspass-app-claim
+      - name: syspass-backup-storage
+        persistentVolumeClaim:
+          claimName: syspass-backup-claim
+      containers:
+      - name: syspass-app
+        image: syspass/syspass:3.1.0
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+          name: syspass-http
+        - containerPort: 443
+          name: syspass-https
+        volumeMounts:
+          - name: syspass-app-storage
+            mountPath: /var/www/html/sysPass/app/config
+          - name: syspass-backup-storage
+            mountPath: /var/www/html/sysPass/app/backup
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: syspass-app
+  labels:
+    group: syspass
+    app: syspass-app
+
+spec:
+  selector:
+    group: syspass
+    app: syspass-app
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 80
+      name: syspass-http
+    - port: 443
+      targetPort: 443
+      name: syspass-https
