@@ -5,7 +5,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: db
+  storageClassName: ""
   capacity:
     storage: 5Gi
   accessModes:
@@ -22,7 +22,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: app
+  storageClassName: ""
   capacity:
     storage: 5Gi
   accessModes:
@@ -39,7 +39,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: backup
+  storageClassName: ""
   capacity:
     storage: 2Gi
   accessModes:
