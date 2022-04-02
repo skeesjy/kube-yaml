@@ -29,6 +29,9 @@ spec:
       - name: syspass-app
         image: syspass/syspass:3.1.0
         imagePullPolicy: IfNotPresent
+        env:
+          - name: COMPOSER_EXTENSIONS
+            value: "syspass/plugin-authenticator:^v2.0"
         ports:
         - containerPort: 80
           name: syspass-http
