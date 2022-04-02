@@ -8,6 +8,7 @@ metadata:
     app: syspass-db
 spec:
   replicas: 1
+  serviceName: "syspass-db"
   selector:
     matchLabels:
       group: syspass
@@ -42,7 +43,7 @@ spec:
       resources:
         requests:
           storage: 5Gi
-          
+
 ---
 apiVersion: v1
 kind: Service
