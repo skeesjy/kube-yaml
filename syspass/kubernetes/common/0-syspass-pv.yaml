@@ -5,10 +5,44 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: manual
+  storageClassName: db
   capacity:
-    storage: 12Gi
+    storage: 5Gi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/data/syspass"
+    path: "/data/syspass/db"
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: syspass
+  labels:
+    type: local
+spec:
+  storageClassName: app
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/syspass/app"
+
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: syspass
+  labels:
+    type: local
+spec:
+  storageClassName: backup
+  capacity:
+    storage: 2Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data/syspass/backup"

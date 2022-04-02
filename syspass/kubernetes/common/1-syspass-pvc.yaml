@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: syspass-db-claim
 spec:
-  storageClassName: manual
+  storageClassName: db
   accessModes:
     - ReadWriteOnce
   resources:
@@ -18,7 +18,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: syspass-app-claim
 spec:
-  storageClassName: manual
+  storageClassName: app
   accessModes:
     - ReadWriteOnce
   resources:
@@ -32,7 +32,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: syspass-backup-claim
 spec:
-  storageClassName: manual
+  storageClassName: backup
   accessModes:
     - ReadWriteOnce
   resources:
