@@ -39,7 +39,6 @@ spec:
   - metadata:
       name: mysql-persistent-storage
     spec:
-      storageClassName: "syspass-db"
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
