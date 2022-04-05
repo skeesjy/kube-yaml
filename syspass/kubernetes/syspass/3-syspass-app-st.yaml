@@ -40,6 +40,7 @@ spec:
   - metadata:
       name: syspass-config
     spec:
+      storageClassName: "app"
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
@@ -48,6 +49,7 @@ spec:
   - metadata:
       name: syspass-backup
     spec:
+      storageClassName: "backup"
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:

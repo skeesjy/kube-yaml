@@ -39,6 +39,7 @@ spec:
   - metadata:
       name: mysql-persistent-storage
     spec:
+      storageClassName: "db"
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
