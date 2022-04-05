@@ -28,7 +28,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/data/syspass/app"
+    path: "/data/syspass/config"
 
 ---
 
