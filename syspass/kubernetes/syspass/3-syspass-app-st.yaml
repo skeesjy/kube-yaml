@@ -34,8 +34,8 @@ spec:
         volumeMounts:
           - name: syspass-config
             mountPath: /var/www/html/sysPass
-          - name: syspass-backup
-            mountPath: /var/www/html/sysPass/app/backup
+          # - name: syspass-backup
+          #   mountPath: /var/www/html/sysPass/app/backup
   volumeClaimTemplates:
   - metadata:
       name: syspass-config
@@ -46,14 +46,14 @@ spec:
         requests:
           storage: 3Gi
 
-  - metadata:
-      name: syspass-backup
-    spec:
-      storageClassName: "backup"
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 2Gi
+  # - metadata:
+  #     name: syspass-backup
+  #   spec:
+  #     storageClassName: "backup"
+  #     accessModes: [ "ReadWriteOnce" ]
+  #     resources:
+  #       requests:
+  #         storage: 2Gi
 
 ---
 
