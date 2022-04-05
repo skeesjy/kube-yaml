@@ -33,7 +33,7 @@ spec:
           name: syspass-https
         volumeMounts:
           - name: syspass-config
-            mountPath: /var/www/html/sysPass/app/config 
+            mountPath: /var/www/html/sysPass
           - name: syspass-backup
             mountPath: /var/www/html/sysPass/app/backup
   volumeClaimTemplates:
