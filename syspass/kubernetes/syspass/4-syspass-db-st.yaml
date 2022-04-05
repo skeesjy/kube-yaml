@@ -60,6 +60,7 @@ spec:
     group: syspass
     app: syspass-db
   type: ClusterIP
+  clusterIP: None
   ports:
     - port: 3306
       targetPort: 3306
